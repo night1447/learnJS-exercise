@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>John</td>
+        <td>Smith</td>
+        <td>10</td>
+    </tr>
+    <tr>
+        <td>Pete</td>
+        <td>Brown</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>Ann</td>
+        <td>Lee</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <td>...</td>
+        <td>...</td>
+        <td>...</td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    const sortTable = (table) => {
+        const massive = [];
+        const tbody = table.tBodies[0];
+        for (let row of tbody.rows) {
+            console.log(row);
+            massive.push(row);
+        }
+        const sortMassive = massive.sort((a, b) => {
+            if (a.cells[0].textContent > b.cells[0].textContent) {
+                return 1;
+            }
+            return -1;
+        })
+        const fragment = new DocumentFragment();
+        massive.forEach(item => fragment.append(item));
+        tbody.innerHTML = '';
+        tbody.append(fragment);
+    }
+    const table = document.querySelector('table');
+    sortTable(table)
+
+</script>
+</body>
+</html>

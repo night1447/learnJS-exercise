@@ -1,0 +1,10 @@
+const table = document.querySelector('#age-table');
+const labels = table.querySelectorAll('label');
+const firstTD = table.querySelector('td:first-child');
+const form = document.querySelector('[name="search"]');
+const firstInput = form.querySelector('input:first-child');
+const lastInput = form.querySelector('input:last-child');
+console.log(firstTD);
+console.log(form);
+console.log(firstInput);
+console.log(lastInput);

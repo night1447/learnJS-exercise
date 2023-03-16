@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .clock__wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .clock span:not(:last-child) {
+        position: relative;
+    }
+
+    .clock__hours {
+        color: red;
+    }
+
+    .clock__minutes {
+        color: blue;
+    }
+
+    .clock__seconds {
+        color: green;
+    }
+
+    .clock span:not(:last-child)::after {
+        content: ":";
+    }
+
+</style>
+<body>
+
+<ol id="elem">
+    <li>Привет</li>
+    <li>Мир</li>
+</ol>
+<table id="table">
+    aaa
+    <tr>
+        <td>Тест</td>
+    </tr>
+</table>
+<script src="clear.js"></script>
+<!--<script src="createList.js"></script>-->
+<script src="createTree.js"></script>
+<script src="disassembleList.js"></script>
+<script src="createTable.js"></script>
+<script src="clock.js"></script>
+</body>
+</html>
