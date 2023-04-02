@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .message-ball {
+            font-size: 20px;
+            line-height: 200px;
+            text-align: center;
+        }
+
+        .circle {
+            transition-property: width, height;
+            transition-duration: 2s;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            background-color: lightblue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+<button onclick="start()">Нажми меня</button>
+
+<script>
+
+    function start() {
+        showCircle(150, 150, 100).then(div => {
+            div.classList.add('message-ball');
+            div.append("Hello");
+        });
+    }
+
+    function showCircle(cx, cy, radius) {
+        let block = document.createElement('div');
+        block.style.width = `0`;
+        block.style.height = `0`;
+        block.style.left = cx + 'px';
+        block.style.top = cy + 'px';
+        block.className = 'circle';
+        document.body.append(block);
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                block.style.width = radius * 2 + 'px';
+                block.style.height = radius * 2 + 'px';
+
+                block.addEventListener('transitionend', function transitionHandler() {
+                    block.removeEventListener('transitionend', this);
+                    resolve(block);
+                });
+            }, 0);
+        })
+    }
+</script>
+
+</body>
+</html>
